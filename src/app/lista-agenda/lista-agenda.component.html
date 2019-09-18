@@ -1,0 +1,39 @@
+<div class="row">
+    <form id="forminclusao" [formGroup]="formulario">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input formControlName="nome" type="text" id="nome" />
+        </div>
+        <div>
+            <label for="telefone">Telefone:</label>
+            <input formControlName="telefone" type="text" id="telefone" />
+        </div>
+        <div>
+            <label for="email">E-mail:</label>
+            <input formControlName="email" type="email" id="email" />
+        </div>
+    </form>
+    <button (click)="SalvarPessoa()">Salvar</button>
+</div>
+<br>
+<div class="row">
+    <table style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+        <tr *ngFor="let item of listaClientes">
+            <td>{{item.idPessoa}}</td>
+            <td>{{item.nome}}</td>
+            <td>{{item.telefone}}</td>
+            <td>{{item.email}}</td>
+            <td><button (click)="Alterar(item)">Alterar</button></td>
+            <td><button (click)="Excluir(item.idPessoa)">Excluir</button></td>
+        </tr>
+    </table>
+</div>
